@@ -2,6 +2,7 @@ package poly.edu.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,9 +25,12 @@ public class AccountController {
 	SessionService sessionService;
 	
 	@GetMapping("/account/login")
-	public String login1() {
-		return "/account/login";
+	public String login1(Model model) {
+	    String savedUser = cookieService.getValue("user");
+	    model.addAttribute("username", savedUser);
+	    return "/account/login";
 	}
+
 
 	@PostMapping("/account/login")
 	public String login2() {
@@ -41,7 +45,6 @@ public class AccountController {
 	        } else {
 	            cookieService.remove("user");
 	        }
-	        return "redirect:/item/index";
 	    }
 	    return "/account/login";
 	}

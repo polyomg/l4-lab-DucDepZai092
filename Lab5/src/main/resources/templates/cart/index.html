@@ -27,6 +27,8 @@
 			<td><a th:href="@{|/cart/remove/${item.id}|}">Remove</a></td>
 		</tr>
 	</table>
+	<h3>Total Amount: <span th:text="${cart.amount}"></span></h3>
+	
 	<a href="/item/index">Add more</a>
 	<a href="/cart/clear">Clear Cart</a>
 </body>
