@@ -14,7 +14,7 @@ import poly.edu.entity.Category;
 @Controller
 public class CategoryController {
 	@Autowired
-	CategoryDAO dao; // làm việc với bảng Categories
+	CategoryDAO dao; // làm việc với bảng Categories.
 
 	@RequestMapping("/category/index")
 	public String index(Model model) {
